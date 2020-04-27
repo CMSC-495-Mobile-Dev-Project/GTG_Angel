@@ -4,9 +4,11 @@ import {View, TextInput, StyleSheet, TouchableOpacity, Text} from 'react-native'
 const SignupButton = () => {
 
     return(
+      <View>
         <TouchableOpacity style={styles.signupBtn}>
           <Text style={styles.signupText}>SIGN UP</Text>
         </TouchableOpacity>
+      </View>
     )
 }
 
@@ -18,8 +20,8 @@ const styles = StyleSheet.create({
         height:50,
         alignItems:"center",
         justifyContent:"center",
-        marginTop:-10,
-        // marginBottom:-400
+        //marginTop:-10,
+        marginBottom:500
       },
       signupText:{
         color:"white"

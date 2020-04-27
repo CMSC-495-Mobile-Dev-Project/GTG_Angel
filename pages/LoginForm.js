@@ -4,12 +4,24 @@ import {View, TextInput, StyleSheet, TouchableOpacity, Text} from 'react-native'
 import Form from '../components/Form';
 import LoginButton from '../components/LoginButton';
 import SignupButton from '../components/SignupButton';
+import Icon from 'react-native-vector-icons/Ionicons';
 
-const Login = () => {
+const LoginForm = () => {
 
     return(
         <View style={styles.container}>
-            <Form />
+            {/* <Form /> */}
+            <TextInput
+                placeholder="Username"
+                placeholderTextColor="rgba(255, 255, 255, 0.9)"
+                style={styles.input}
+                />
+            <TextInput
+                placeholder="Password"
+                placeholderTextColor="rgba(255, 255, 255, 0.9)"
+                secureTextEntry 
+                style={styles.input}
+                />
             <LoginButton />
             <View style={styles.signupTextCont}>
                 <Text style={styles.signupText}>Don't have an account yet?</Text>
@@ -44,8 +56,18 @@ const styles = StyleSheet.create({
         color: "#ffffff",
         fontSize: 16,
         fontWeight: '500'
+    },
+    input: {
+        height: 50,
+        width: 300,
+        backgroundColor: 'rgba(255, 255, 255, 0.4)',
+        borderRadius: 25,
+        marginTop: 10,
+        color: '#FFF',
+        paddingHorizontal: 10
+        
     }
 
 })
 
-export default Login;
+export default LoginForm;

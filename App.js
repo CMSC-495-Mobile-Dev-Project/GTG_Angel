@@ -1,7 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
 
-import Login from './pages/Login';
+// import Login from './pages/Login';
+import SignupForm from './pages/SignupForm';    
+import LoginForm from './pages/LoginForm';
+
 // import CredsInput from './components/CredsInput';
 // import LoginButton from './components/LoginButton';
 // import SignupButton from './components/SignupButton';
@@ -12,8 +15,10 @@ const App = () =>{
   return (
           <ImageBackground source={require('./assets/background.png')}
                             style={styles.container}>
-              <Text style={styles.logo}>Groceries To Go</Text>
-              <Login />
+              <Text style={styles.logo}>Grocery To Go</Text>
+              {/* <SignupForm /> */}
+              <LoginForm />
+              {/* <Signup /> */}
               {/* <LoginButton />
               <SignupButton />
               <ForgotButton />
