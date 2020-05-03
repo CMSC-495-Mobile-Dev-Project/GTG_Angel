@@ -1,15 +1,27 @@
-import React from 'react';
-import {View, TextInput, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import React, {} from 'react';
+import { NavigationContainer, StackActions } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack'; 
+import {View, TextInput, StyleSheet, TouchableOpacity, Text, Button} from 'react-native';
 
-const LoginButton = () => {
+import HomeScreen from '../components/HomeScreen';
 
-    return(
-      <View>
-        <TouchableOpacity style={styles.loginBtn}>
-          <Text style={styles.loginText}>LOG IN</Text>
-        </TouchableOpacity>
-      </View>
-    )
+const Stack = createStackNavigator();
+
+const LoginButton = ({navigation}) => {
+
+
+      return(
+        <Button
+          title="Log In"
+          onPress={() => navigation.navigate("Home")}
+        />
+        // <View>
+        //   <TouchableOpacity onPress style={styles.loginBtn}>
+        //     <Text style={styles.loginText}>LOG IN</Text>
+        //   </TouchableOpacity>
+        // </View>
+      )
+  
 }
 
 const styles = StyleSheet.create({
@@ -21,7 +33,7 @@ const styles = StyleSheet.create({
         alignItems:"center",
         justifyContent:"center",
         marginTop:10,
-       marginBottom:10
+        marginBottom:10
       },
       loginText:{
         fontWeight: '900',
