@@ -3,15 +3,8 @@ import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack'; 
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground, Button } from 'react-native';
 
-// import Login from './pages/Login';
 import SignupForm from './pages/SignupForm';    
 import LoginForm from './pages/LoginForm';
-
-// import CredsInput from './components/CredsInput';
-// import LoginButton from './components/LoginButton';
-// import SignupButton from './components/SignupButton';
-// import ForgotButton from './components/ForgotButton';
-// import ContactUsButton from './components/ContactUsButton';
 
 const HomeScreen = ({navigation}) => {
   return (
@@ -37,15 +30,11 @@ const Stack = createStackNavigator();
 
 const App = () =>{
   return (
-          // <ImageBackground source={require('./assets/background.png')}
-          //                   style={styles.container}>
-          //     <Text style={styles.logo}>Grocery To Go</Text>
-              
-          // </ImageBackground>
           <NavigationContainer>
             <Stack.Navigator>
               <Stack.Screen name="Login" component={LoginForm} />
               <Stack.Screen name="Home" component={HomeScreen} />
+              <Stack.Screen name="Signup" component={SignupForm} />
             </Stack.Navigator>
           </NavigationContainer>
         );

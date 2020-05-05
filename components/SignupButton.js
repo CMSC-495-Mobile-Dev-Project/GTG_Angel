@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
         height:50,
         alignItems:"center",
         justifyContent:"center",
-        //marginTop:-10,
         marginBottom:500
       },
       signupText:{

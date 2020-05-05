@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import {View, TextInput, StyleSheet, TouchableOpacity, Text, ImageBackground, Button} from 'react-native';
 
-import Form from '../components/Form';
-import LoginButton from '../components/LoginButton';
-import SignupButton from '../components/SignupButton';
-import Icon from 'react-native-vector-icons/Ionicons';
-
 const userInfo = {username: 'admin', password: 'password'}
 
 const LoginForm = ({navigation}) =>  {  
@@ -25,7 +20,6 @@ const LoginForm = ({navigation}) =>  {
                             style={styles.container}>
                 <Text style={styles.logo}> Grocery To Go</Text>
                 <View style={styles.container}>
-                    {/* <Form /> */}
                     <TextInput
                         placeholder="Username"
                         placeholderTextColor="rgba(255, 255, 255, 0.9)"
@@ -41,14 +35,16 @@ const LoginForm = ({navigation}) =>  {
                         // onChangeText={(password)=>this.setState({password})}
                         // value={this.state.password}
                         />
-                    {/* <LoginButton /> */}
-                    <Button
-                    title="Log In"
-                    onPress={() => navigation.navigate("Home")}
-                    />
+                    
+                    <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+                        <View style={styles.loginBtn}>
+                            <Text style={styles.loginText}>LOG IN</Text>
+                        </View>
+                   </TouchableOpacity>
+                 
                     <View style={styles.signupTextCont}>
                         <Text style={styles.signupText}>Don't have an account yet?</Text>
-                        <TouchableOpacity >
+                        <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
                             <Text style={styles.signupButton}>  Sign Up</Text>
                         </TouchableOpacity>
                     </View>
@@ -89,8 +85,7 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         marginTop: 10,
         color: '#FFF',
-        paddingHorizontal: 10
-        
+        paddingHorizontal: 10 
     },
     logo:{
         fontWeight:"bold",
@@ -100,8 +95,22 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginTop:400,
         marginBottom: 100
+      },
+      loginBtn:{
+        width:300,
+        backgroundColor:"#249924",
+        borderRadius:25,
+        height:50,
+        alignItems:"center",
+        justifyContent:"center",
+        marginTop:10,
+        marginBottom:10
+      },
+      loginText:{
+        fontWeight: '900',
+        color:"white"
+        
       }
-
 })
 
 export default LoginForm;
