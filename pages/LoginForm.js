@@ -4,16 +4,17 @@ import {View, TextInput, StyleSheet, TouchableOpacity, Text, ImageBackground, Bu
 
 const userInfo = {username: 'admin', password: 'password'}
 
-const LoginForm = ({navigation}) =>  {  
+class LoginForm extends Component  {  
 
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         username: '',
-    //         password: ''
-    //     }
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+            password: ''
+        }
+    }
 
+    render(){
 
         return(
             <ImageBackground source={require('../assets/background.png')}
@@ -24,33 +25,47 @@ const LoginForm = ({navigation}) =>  {
                         placeholder="Username"
                         placeholderTextColor="rgba(255, 255, 255, 0.9)"
                         style={styles.input}
-                        // onChangeText={(username)=>this.setState({username})}
-                        // value={this.state.username}
+                        onChangeText={(username)=>this.setState({username})}
+                        value={this.state.username}
                         />
                     <TextInput
                         placeholder="Password"
                         placeholderTextColor="rgba(255, 255, 255, 0.9)"
                         secureTextEntry 
                         style={styles.input}
-                        // onChangeText={(password)=>this.setState({password})}
-                        // value={this.state.password}
+                        onChangeText={(password)=>this.setState({password})}
+                        value={this.state.password}
                         />
                     
-                    <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-                        <View style={styles.loginBtn}>
+                    <TouchableOpacity 
+                        onPress={this._login}
+                        // onPress={() => this.props.navigation.navigate("Home")}
+                        style={styles.loginBtn} >
                             <Text style={styles.loginText}>LOG IN</Text>
-                        </View>
+                        
                    </TouchableOpacity>
                  
                     <View style={styles.signupTextCont}>
                         <Text style={styles.signupText}>Don't have an account yet?</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate("Signup")}>
                             <Text style={styles.signupButton}>  Sign Up</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
             </ImageBackground>
         )
+    }
+
+    _login = async() => {
+        if(userInfo.username === this.state.username && userInfo.password === this.state.password){
+            // alert('Logged In');
+            this.props.navigation.navigate("Home")
+        } else {
+            alert('Username or Password is Incorrect.')
+        }
+            
+
+    }
     
 }
 

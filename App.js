@@ -1,44 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack'; 
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground, Button } from 'react-native';
+import { createAppContainer } from 'react-navigation'
 
 import SignupForm from './pages/SignupForm';    
 import LoginForm from './pages/LoginForm';
 
-const HomeScreen = ({navigation}) => {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Home Screen</Text>
-      <Button
-          title="Hit Me"
-          onPress={() => navigation.navigate("Details")}
-        />
-    </View>
-  );
-}
-
-const DetailsScreen = () => {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Details</Text>
-    </View>
-  );
+class HomeScreen extends Component {
+  render(){
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <Text> GTG Home Screen </Text>
+        <Button
+            title="Hit Me"
+            onPress={() => this.props.navigation.navigate("Details")}
+          />
+      </View>
+    );
+  }
 }
 
 const Stack = createStackNavigator();
 
-const App = () =>{
-  return (
-          <NavigationContainer>
-            <Stack.Navigator>
-              <Stack.Screen name="Login" component={LoginForm} />
-              <Stack.Screen name="Home" component={HomeScreen} />
-              <Stack.Screen name="Signup" component={SignupForm} />
-            </Stack.Navigator>
-          </NavigationContainer>
-        );
+type Props ={}; 
 
+export default class App extends Component<Props>{
+  render(){
+    return (
+            <NavigationContainer>
+              <Stack.Navigator>
+                <Stack.Screen name="Login" component={LoginForm} />
+                <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen name="Signup" component={SignupForm} />
+              </Stack.Navigator>
+            </NavigationContainer>
+          );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -58,4 +56,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App
+// export default App

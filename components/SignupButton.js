@@ -5,7 +5,10 @@ const SignupButton = () => {
 
     return(
       <View>
-        <TouchableOpacity style={styles.signupBtn}>
+        <TouchableOpacity
+          onPress={() => alert("Registration Complete!")} 
+          style={styles.signupBtn}
+        >
           <Text style={styles.signupText}>SIGN UP</Text>
         </TouchableOpacity>
       </View>
